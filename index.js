@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://e-commerce-cero-huella.vercel.app/'], // dominios permitidos
+  origin: ['http://localhost:3000', 'https://e-commerce-cero-huella.vercel.app'], // dominios permitidos
   methods: ['GET', 'POST', 'PUT', 'DELETE'],                  // métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'],          // cabeceras permitidas
   exposedHeaders: ['Content-Length'],                         // cabeceras visibles al cliente
