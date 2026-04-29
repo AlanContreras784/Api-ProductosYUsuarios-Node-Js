@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
   origin: ['http://localhost:3000', 'https://e-commerce-cero-huella.vercel.app'], // dominios permitidos
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],                  // métodos permitidos
+  //methods: ['GET', 'POST', 'PUT', 'DELETE'],                  // métodos permitidos
+  
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],          // cabeceras permitidas
   exposedHeaders: ['Content-Length'],                         // cabeceras visibles al cliente
   credentials: true,                                          // habilitar credenciales
@@ -22,7 +24,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
+app.options('*', cors(corsOptions));
 
 // middlewares
 app.use(express.json());
@@ -68,6 +70,13 @@ app.use((req, res, next) => {
 //   console.log(`Server on port http://localhost:${app.get("PORT")}`);
 // });
 
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Servidor corriendo en http://localhost:${PORT}`);
+// });
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  });
+}
+
+export default app;
