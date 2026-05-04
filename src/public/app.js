@@ -315,10 +315,7 @@ document
 
       const data = await response.json();
 
-      console.log(data);
-      console.log(response.status);
-      console.log("STATUS:", response.status);
-
+      
 if(!response.ok){
 
   console.log("LOGIN FALLÓ");
