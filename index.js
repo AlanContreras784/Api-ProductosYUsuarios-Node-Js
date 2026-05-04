@@ -27,7 +27,7 @@ app.use(cors(corsOptions));
 
 // middlewares
 app.use(express.json());
-app.use(express.static(join(__dirname, "public/index.html")));
+app.use(express.static(join(__dirname, "public")));
 // Middleware para poder leer datos enviados desde formularios HTML (POST)
 // Convierte el formato application/x-www-form-urlencoded en un objeto JS accesible en req.body
 // "extended: true" permite interpretar objetos complejos y anidados usando la librería 'qs'
@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 //   res.json({ title: "Home Page Bienvenidos" });
 // });
 app.get("/", (req, res) => {
-  res.sendFile(join(__dirname, "src/public/index.html"));
+  res.sendFile(join(__dirname, "public/index.html"));
 });
 //app.use("/api/users", userRoutes);
 app.use("/api", productsRoutes);
