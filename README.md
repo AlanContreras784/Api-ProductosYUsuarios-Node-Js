@@ -105,7 +105,7 @@ Las rutas están en `src/routes` y los controladores en `src/controllers`.
 📁 Estructura del Proyecto (recomendada)
 ------------------------------------
 Aquí tienes una estructura de proyecto sugerida, lista para reemplazar la actual. Está pensada para mantener claridad entre capas y facilitar pruebas, scripts y documentación.
-
+```bash
 back-end/
 ├── index.js                     # Entrada principal del servidor
 ├── package.json
@@ -154,7 +154,7 @@ back-end/
 │       └── seedUser.js
 │
 └── README.md                    # Este archivo
-
+```
 Notas:
 - Mantén `.env` fuera del repo; incluye `.env.example` con claves dummy.  
 
