@@ -163,7 +163,7 @@ Uso
 ------
 - Inicia el servidor y prueba los endpoints usando Postman, Insomnia o tu front-end.
 - Ejemplo de respuesta de /api/products:
-
+```bash
 {
   "message": "Lista de productos",
   "payload": [
@@ -175,6 +175,7 @@ Uso
     }
   ]
 }
+```
 -Nota: El ID del produco se genera automaticamente cuando se crea un producto:
 
 - Productos
