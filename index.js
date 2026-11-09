@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
   //origin: ['http://localhost:3000', 'https://entrega-final-tt-react-js.vercel.app'], // dominios permitidos
-  origin: ['http://localhost:4000', 'https://e-commerce-cero-huella.vercel.app'], // Permitir solicitudes desde cualquier origen (no recomendado para producción)
+  origin: ['http://localhost:4000','http://localhost:3000', 'https://e-commerce-cero-huella.vercel.app'], // Permitir solicitudes desde cualquier origen (no recomendado para producción)
   methods: ['GET', 'POST', 'PUT', 'DELETE'],                  // métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'],          // cabeceras permitidas
   exposedHeaders: ['Content-Length'],                         // cabeceras visibles al cliente
