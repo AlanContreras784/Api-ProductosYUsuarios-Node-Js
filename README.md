@@ -102,49 +102,59 @@ Las rutas están en `src/routes` y los controladores en `src/controllers`.
     - o las definidas por `FIREBASE_ADMIN_EMAIL` y `FIREBASE_ADMIN_PASSWORD` en `.env`.
 
 
-Estructura del Proyecto (recomendada)
+📁 Estructura del Proyecto (recomendada)
 ------------------------------------
 Aquí tienes una estructura de proyecto sugerida, lista para reemplazar la actual. Está pensada para mantener claridad entre capas y facilitar pruebas, scripts y documentación.
-
+```bash
 back-end/
-├── index.js                     # Entrada del servidor
+├── index.js                     # Entrada principal del servidor
 ├── package.json
 ├── package-lock.json
-├── README.md                    # Documentación (este archivo)
+├── README.md                    # Documentación principal
 ├── vercel.json
-├── .env                         # Variables de entorno (no commitear)
+├── .env                         # Variables de entorno (NO commitear)
 ├── .gitignore
+│
 ├── scripts/
-│   └── seed.js                  # Script para seed de datos (opcional)
+│   └── seed.js                  # Script opcional para cargar datos iniciales
+│
 ├── src/
 │   ├── config/
 │   │   ├── db.js                # Conexión a base de datos / Firebase
 │   │   ├── firebase.productos.js
-│   │   └── token.js             # Generación/validación JWT
-│   ├── controllers/
+│   │   └── token.js             # Generación y validación de JWT
+│   │
+│   ├── controladores/
 │   │   ├── auth.controller.js
-│   │   ├── products.controller.js
-│   │   └── user.controller.js
+│   │   ├── productos.controller.js
+│   │   └── usuario.controller.js
+│   │
 │   ├── data/
-│   │   ├── products.json        # Datos de ejemplo
-│   │   └── users.json
+│   │   ├── productos.json       # Datos de ejemplo
+│   │   └── usuarios.json
+│   │
 │   ├── middleware/
-│   │   └── authentication.js
+│   │   └── autenticacion.js     # Middleware de autenticación
+│   │
 │   ├── models/
 │   │   ├── products.model.js
 │   │   └── user.model.js
+│   │
 │   ├── routes/
 │   │   ├── auth.route.js
 │   │   ├── products.route.js
 │   │   └── user.route.js
+│   │
 │   ├── services/
 │   │   ├── products.service.js
 │   │   └── user.service.js
+│   │
 │   └── utils/
 │       ├── index.js
 │       └── seedUser.js
-└──README.md(este archivo)
-
+│
+└── README.md                    # Este archivo
+```
 Notas:
 - Mantén `.env` fuera del repo; incluye `.env.example` con claves dummy.  
 
@@ -153,7 +163,7 @@ Uso
 ------
 - Inicia el servidor y prueba los endpoints usando Postman, Insomnia o tu front-end.
 - Ejemplo de respuesta de /api/products:
-
+```bash
 {
   "message": "Lista de productos",
   "payload": [
@@ -165,6 +175,7 @@ Uso
     }
   ]
 }
+```
 -Nota: El ID del produco se genera automaticamente cuando se crea un producto:
 
 - Productos
