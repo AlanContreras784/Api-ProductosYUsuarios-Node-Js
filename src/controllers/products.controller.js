@@ -1,5 +1,15 @@
 // controller
  import productsService from '../services/products.service.js'
+
+ const normalizar = (p) => ({
+    ...p,
+    ...(p.descuento !== undefined && {
+      descuento: Math.min(99, Math.max(0, Number(p.descuento) || 0)),
+    }),
+    ...(p.destacado !== undefined && {
+      destacado: p.destacado === true || p.destacado === "true",
+    }),
+});
  
 const getProducts = async (req, res) => {
   try {
@@ -26,7 +36,7 @@ const createProduct = async (req, res) => {
     const newProduct = req.body;
     console.log("🔥 RECIBIDO DESDE EL FRONT --->", JSON.stringify(req.body, null, 2));
 
-    const product = await productsService.create(newProduct);
+    const product = await productsService.create(normalizar(newProduct));
     console.log("🔥 CREADO EN LA BD --->", JSON.stringify(product, null, 2));
     
     res.status(201).json({ message: "Producto creado con éxito", payload: product });
@@ -43,7 +53,7 @@ const updateProduct = async (req, res) => {
         console.log("🔥 BODY RECIBIDO EN UPDATE:", req.body);
         console.log("🔥 ID:", req.params.id);
         if (id && product){
-            const newProduct = await productsService.update(id, product)
+            const newProduct = await productsService.update(id, normalizar(product))
             res.status(200).json({ message: "Producto actualizado", payload: newProduct });
         }else{
             res.status(400).json({ message: "Faltan datos obligatorios" });
